@@ -29,7 +29,7 @@ class supplierClass:
         btn_search=Button(self.root,text="SEARCH",command=self.search,font=("rockwell",15),bg="green4",fg="white",cursor="hand2").place(x=980,y=79,width=100,height=28)   
 
         #---------------title----------------
-        title=Label(self.root,text="Supplier Details",font=("rockwell",20,"bold"),bg="#0f4d7d",fg="ghost white").place(x=40,y=10,width=1200,height=40) 
+        title=Label(self.root,text="Supplier Details",font=("rockwell",20,"bold"),bg="deepskyblue4",fg="ghost white",bd=3,relief=RIDGE).place(x=40,y=10,width=1200,height=40) 
 
         #--------------------content----------------
         #--------------------row1------------------------
@@ -179,7 +179,7 @@ class supplierClass:
                         self.clear()
         except Exception as ex:
             messagebox.showerror("Error",f'Error due to: {str(ex)}',parent=self.root)
-    
+
     def clear(self):
         self.var_sup_invoice.set("")
         self.var_name.set("")

@@ -37,7 +37,7 @@ class employeeClass:
         btn_search=Button(SearchFrame,text="SEARCH",command=self.search,font=("rockwell",15),bg="green4",fg="white",cursor="hand2").place(x=410,y=9,width=150,height=30)   
 
         #---------------title----------------
-        title=Label(self.root,text="Employee Details",font=("rockwell",15),bg="#0f4d7d",fg="ghost white").place(x=40,y=100,width=1200) 
+        title=Label(self.root,text="Employee Details",font=("rockwell",15),bg="deepskyblue4",fg="ghost white").place(x=40,y=100,width=1200) 
 
         #--------------------content----------------
         #--------------------row1------------------------
