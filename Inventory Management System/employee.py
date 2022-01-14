@@ -24,7 +24,7 @@ class employeeClass:
         self.var_utype=StringVar()
         self.var_salary=StringVar()
         #--------------------search frame--------------------------------
-        SearchFrame=LabelFrame(self.root,text="search employee",font=("goudy old style",12,"bold"),bd=2,relief=RIDGE,bg="white")
+        SearchFrame=LabelFrame(self.root,text="Search Employee",font=("goudy old style",12,"bold"),bd=2,relief=RIDGE,bg="white")
         SearchFrame.place(x=250,y=20,width=600,height=70)
 
         #----------------------option---------------
@@ -70,7 +70,7 @@ class employeeClass:
         cmb_usertype.place(x=850,y=230,width=180)
         cmb_usertype.current(0) 
 
-         #--------------------------row4----------------------------
+        #--------------------------row4----------------------------
         lbl_address=Label(self.root,text="address",font=("goudy old style",15),bg="white").place(x=50,y=270)
         lbl_salary=Label(self.root,text="salary",font=("goudy old style",15),bg="white").place(x=500,y=270) 
         
@@ -86,7 +86,7 @@ class employeeClass:
         
 
 
-        #----------employee details--------------------
+        #----------Employee details--------------------
         emp_frame=Frame(self.root,bd=3,relief=RIDGE)
         emp_frame.place(x=0,y=350,relwidth=1,height=150)
 
@@ -123,6 +123,7 @@ class employeeClass:
         self.EmployeeTable.column("utype",width=100)
         self.EmployeeTable.column("address",width=100)
         self.EmployeeTable.column("salary",width=100)
+
 if __name__=="__main__":
     root=Tk()
     obj=employeeClass(root)
