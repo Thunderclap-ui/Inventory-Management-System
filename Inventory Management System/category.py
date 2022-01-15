@@ -7,20 +7,20 @@ class categoryClass:
         self.root=root
         self.root.geometry("1100x500+220+130")
         self.root.title("                                                                                                                             Inventory Management System | Developed By Gaayana And Jayanth")
-        self.root.config(bg="ghost white")
+        self.root.config(bg="white")
         self.root.focus_force()
         ###Variables===
         self.var_cat_id=StringVar()
         self.var_name=StringVar()
 
         #----title----
-        lbl_title=Label(self.root,text="Manage Product Category",font=("rockwell",30),bg="deepskyblue4",fg="white",bd=3,relief=RIDGE).pack(side=TOP,fill=X,padx=10,pady=20)
+        lbl_title=Label(self.root,text="Manage Product Category",font=("rockwell",30),bg="navy",fg="white",bd=3,relief=RIDGE).pack(side=TOP,fill=X,padx=10,pady=20)
 
-        lbl_name=Label(self.root,text="Enter Category Name",font=("rockwell",30),bg="ghost white").place(x=50,y=100)
-        txt_name=Entry(self.root,textvariable=self.var_name,font=("rockwell",18),bg="lightyellow").place(x=50,y=170,width=300)
+        lbl_name=Label(self.root,text="Enter Category Name",font=("times new roman",30),bg="white").place(x=50,y=100)
+        txt_name=Entry(self.root,textvariable=self.var_name,font=("rockwell",18),bg="ivory").place(x=50,y=170,width=300)
 
-        btn_add=Button(self.root,text="ADD",command=self.add,font=("rockwell",15),bg="green4",fg="white",cursor="hand2").place(x=360,y=170,width=150,height=30)
-        btn_delete=Button(self.root,text="DELETE",command=self.delete,font=("rockwell",15),bg="red",fg="white",cursor="hand2").place(x=520,y=170,width=150,height=30)
+        btn_add=Button(self.root,text="Add",command=self.add,font=("rockwell",15),bg="green4",fg="white",cursor="hand2").place(x=360,y=170,width=150,height=30)
+        btn_delete=Button(self.root,text="Delete",command=self.delete,font=("rockwell",15),bg="red",fg="white",cursor="hand2").place(x=520,y=170,width=150,height=30)
 
         #----Category Details----
         cat_frame=Frame(self.root,bd=3,relief=RIDGE)

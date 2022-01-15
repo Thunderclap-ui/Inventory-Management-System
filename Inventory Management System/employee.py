@@ -7,7 +7,7 @@ class employeeClass:
         self.root=root
         self.root.geometry("1100x500+220+130")
         self.root.title("                                                                                                                             Inventory Management System | Developed By Gaayana And Jayanth")
-        self.root.config(bg="ghost white")
+        self.root.config(bg="white")
         self.root.focus_force()
         #---------------------------------------------------
         #-------all variable-------------------
@@ -25,7 +25,7 @@ class employeeClass:
         self.var_utype=StringVar()
         self.var_salary=StringVar()
         #--------------------search frame--------------------------------
-        SearchFrame=LabelFrame(self.root,text="Search Employee",font=("rockwell",12,"bold"),bd=2,relief=RIDGE,bg="ghost white")
+        SearchFrame=LabelFrame(self.root,text="Search Employee",font=("rockwell",12),bd=2,relief=RIDGE,bg="white")
         SearchFrame.place(x=250,y=20,width=600,height=70)
 
         #----------------------option---------------
@@ -33,57 +33,57 @@ class employeeClass:
         cmb_search.place(x=10,y=10,width=180)
         cmb_search.current(0)
 
-        txt_search=Entry(SearchFrame,textvariable=self.var_searchtxt,font=("rockwell",15),bg="lightyellow").place(x=200,y=10)
-        btn_search=Button(SearchFrame,text="SEARCH",command=self.search,font=("rockwell",15),bg="green4",fg="white",cursor="hand2").place(x=410,y=9,width=150,height=30)   
+        txt_search=Entry(SearchFrame,textvariable=self.var_searchtxt,font=("rockwell",15),bg="ivory").place(x=200,y=10)
+        btn_search=Button(SearchFrame,text="Search",command=self.search,font=("rockwell",15),bg="green4",fg="white",cursor="hand2").place(x=410,y=9,width=150,height=30)   
 
         #---------------title----------------
-        title=Label(self.root,text="Employee Details",font=("rockwell",15),bg="deepskyblue4",fg="ghost white").place(x=40,y=100,width=1200) 
+        title=Label(self.root,text="Employee Details",font=("rockwell",15),bg="navy",fg="white").place(x=40,y=100,width=1200) 
 
         #--------------------content----------------
         #--------------------row1------------------------
-        lbl_empid=Label(self.root,text="Emp ID",font=("rockwell",15),bg="ghost white").place(x=50,y=150)
-        lbl_gender=Label(self.root,text="Gender",font=("rockwell",15),bg="ghost white").place(x=400,y=150) 
-        lbl_contact=Label(self.root,text="Contact",font=("rockwell",15),bg="ghost white").place(x=750,y=150)
+        lbl_empid=Label(self.root,text="Emp ID",font=("times new roman",15),bg="white").place(x=50,y=150)
+        lbl_gender=Label(self.root,text="Gender",font=("times new roman",15),bg="white").place(x=400,y=150) 
+        lbl_contact=Label(self.root,text="Contact",font=("times new roman",15),bg="white").place(x=750,y=150)
         
-        txt_empid=Entry(self.root,textvariable=self.var_emp_id,font=("rockwell",15),bg="lightyellow").place(x=150,y=150,width=180)
+        txt_empid=Entry(self.root,textvariable=self.var_emp_id,font=("rockwell",15),bg="ivory").place(x=150,y=150,width=180)
         cmb_gender=ttk.Combobox(self.root,textvariable=self.var_gender,values=("Select","Male","Female","Others"),state='readonly',justify=CENTER,font=("rockwell",15))
         cmb_gender.place(x=500,y=150,width=180)
         cmb_gender.current(0) 
-        txt_contact=Entry(self.root,textvariable=self.var_contact,font=("rockwell",15),bg="lightyellow").place(x=850,y=150,width=180)
+        txt_contact=Entry(self.root,textvariable=self.var_contact,font=("rockwell",15),bg="ivory").place(x=850,y=150,width=180)
 
         #----------------------------row2--------------------------
-        lbl_name=Label(self.root,text="Name",font=("rockwell",15),bg="ghost white").place(x=50,y=190)
-        lbl_dob=Label(self.root,text="D.O.B",font=("rockwell",15),bg="ghost white").place(x=400,y=190) 
-        lbl_doj=Label(self.root,text="D.O.J",font=("rockwell",15),bg="ghost white").place(x=750,y=190)
+        lbl_name=Label(self.root,text="Name",font=("times new roman",15),bg="white").place(x=50,y=190)
+        lbl_dob=Label(self.root,text="D.O.B",font=("times new roman",15),bg="white").place(x=400,y=190) 
+        lbl_doj=Label(self.root,text="D.O.J",font=("times new roman",15),bg="white").place(x=750,y=190)
         
-        txt_name=Entry(self.root,textvariable=self.var_name,font=("rockwell",15),bg="lightyellow").place(x=150,y=190,width=180)
-        txt_dob=Entry(self.root,textvariable=self.var_dob,font=("rockwell",15),bg="lightyellow").place(x=500,y=190,width=180)
-        txt_doj=Entry(self.root,textvariable=self.var_doj,font=("rockwell",15),bg="lightyellow").place(x=850,y=190,width=180)
+        txt_name=Entry(self.root,textvariable=self.var_name,font=("rockwell",15),bg="ivory").place(x=150,y=190,width=180)
+        txt_dob=Entry(self.root,textvariable=self.var_dob,font=("rockwell",15),bg="ivory").place(x=500,y=190,width=180)
+        txt_doj=Entry(self.root,textvariable=self.var_doj,font=("rockwell",15),bg="ivory").place(x=850,y=190,width=180)
         
         #--------------------------row3----------------------------
-        lbl_email=Label(self.root,text="Email",font=("rockwell",15),bg="ghost white").place(x=50,y=230)
-        lbl_password=Label(self.root,text="Password",font=("rockwell",15),bg="ghost white").place(x=400,y=230) 
-        lbl_usertype=Label(self.root,text="User-Type",font=("rockwell",15),bg="ghost white").place(x=750,y=230)
+        lbl_email=Label(self.root,text="Email",font=("times new roman",15),bg="white").place(x=50,y=230)
+        lbl_password=Label(self.root,text="Password",font=("times new roman",15),bg="white").place(x=400,y=230) 
+        lbl_usertype=Label(self.root,text="User-Type",font=("times new roman",15),bg="white").place(x=750,y=230)
 
-        txt_email=Entry(self.root,textvariable=self.var_email,font=("rockwell",15),bg="lightyellow").place(x=150,y=230,width=180)
-        txt_password=Entry(self.root,textvariable=self.var_pass,font=("rockwell",15),bg="lightyellow").place(x=500,y=230,width=180)
+        txt_email=Entry(self.root,textvariable=self.var_email,font=("rockwell",15),bg="ivory").place(x=150,y=230,width=180)
+        txt_password=Entry(self.root,textvariable=self.var_pass,font=("rockwell",15),bg="ivory").place(x=500,y=230,width=180)
         cmb_usertype=ttk.Combobox(self.root,textvariable=self.var_utype,values=("Select","Admin","Employee"),state='readonly',justify=CENTER,font=("rockwell",15))
         cmb_usertype.place(x=850,y=230,width=180)
         cmb_usertype.current(0) 
 
         #--------------------------row4----------------------------
-        lbl_address=Label(self.root,text="Address",font=("rockwell",15),bg="ghost white").place(x=50,y=270)
-        lbl_salary=Label(self.root,text="Salary",font=("rockwell",15),bg="ghost white").place(x=500,y=270) 
+        lbl_address=Label(self.root,text="Address",font=("times new roman",15),bg="white").place(x=50,y=270)
+        lbl_salary=Label(self.root,text="Salary",font=("times new roman",15),bg="white").place(x=500,y=270) 
         
 
-        self.txt_address=Text(self.root,font=("rockwell",15),bg="lightyellow")
+        self.txt_address=Text(self.root,font=("rockwell",15),bg="ivory")
         self.txt_address.place(x=150,y=270,width=300,height=60)
-        txt_salary=Entry(self.root,textvariable=self.var_salary,font=("rockwell",15),bg="lightyellow").place(x=600,y=270,width=180)
+        txt_salary=Entry(self.root,textvariable=self.var_salary,font=("rockwell",15),bg="ivory").place(x=600,y=270,width=180)
         #-------------------------button---------------------------------
-        btn_add=Button(self.root,text="SAVE",command=self.add,font=("rockwell",15),bg="deepskyblue3",fg="white",cursor="hand2").place(x=500,y=305,width=110,height=28)
-        btn_update=Button(self.root,text="UPDATE",command=self.update,font=("rockwell",15),bg="green4",fg="white",cursor="hand2").place(x=620,y=305,width=110,height=28)
-        btn_delete=Button(self.root,text="DELETE",command=self.delete,font=("rockwell",15),bg="red3",fg="white",cursor="hand2").place(x=740,y=305,width=110,height=28)
-        btn_clear=Button(self.root,text="CLEAR",command=self.clear,font=("rockwell",15),bg="gray10",fg="white",cursor="hand2").place(x=860,y=305,width=110,height=28)
+        btn_add=Button(self.root,text="Save",command=self.add,font=("rockwell",15),bg="deepskyblue3",fg="white",cursor="hand2").place(x=500,y=305,width=110,height=28)
+        btn_update=Button(self.root,text="Update",command=self.update,font=("rockwell",15),bg="green4",fg="white",cursor="hand2").place(x=620,y=305,width=110,height=28)
+        btn_delete=Button(self.root,text="Delete",command=self.delete,font=("rockwell",15),bg="red3",fg="white",cursor="hand2").place(x=740,y=305,width=110,height=28)
+        btn_clear=Button(self.root,text="Clear",command=self.clear,font=("rockwell",15),bg="gray10",fg="white",cursor="hand2").place(x=860,y=305,width=110,height=28)
         
 
 

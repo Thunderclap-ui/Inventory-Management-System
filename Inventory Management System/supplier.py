@@ -8,7 +8,7 @@ class supplierClass:
         self.root=root
         self.root.geometry("1100x500+220+130")
         self.root.title("                                                                                                                             Inventory Management System | Developed By Gaayana And Jayanth")
-        self.root.config(bg="ghost white")
+        self.root.config(bg="white")
         self.root.focus_force()
         #---------------------------------------------------
         #-------all variable-------------------
@@ -22,42 +22,41 @@ class supplierClass:
 
         #--------------------searchframe--------------------------------
         #----------------------option---------------
-        lbl_search=Label(self.root,text="Invoice No.",bg="ghost white",font=("rockwell",15))
+        lbl_search=Label(self.root,text="Invoice No.",bg="white",font=("times new roman",15))
         lbl_search.place(x=690,y=80)
 
-        txt_search=Entry(self.root,textvariable=self.var_searchtxt,font=("rockwell",15),bg="lightyellow").place(x=800,y=80,width=160)
-        btn_search=Button(self.root,text="SEARCH",command=self.search,font=("rockwell",15),bg="green4",fg="white",cursor="hand2").place(x=980,y=79,width=100,height=28)   
+        txt_search=Entry(self.root,textvariable=self.var_searchtxt,font=("rockwell",15),bg="ivory").place(x=800,y=80,width=160)
+        btn_search=Button(self.root,text="Search",command=self.search,font=("rockwell",15),bg="green4",fg="white",cursor="hand2").place(x=980,y=79,width=100,height=28)   
 
         #---------------title----------------
-        title=Label(self.root,text="Supplier Details",font=("rockwell",20,"bold"),bg="deepskyblue4",fg="ghost white",bd=3,relief=RIDGE).place(x=40,y=10,width=1200,height=40) 
+        title=Label(self.root,text="Supplier Details",font=("rockwell",20,),bg="navy",fg="white",bd=3,relief=RIDGE).place(x=40,y=10,width=1200,height=40) 
 
         #--------------------content----------------
         #--------------------row1------------------------
-        lbl_supplier_invoice=Label(self.root,text="Invoice No.",font=("rockwell",15),bg="ghost white").place(x=50,y=80)
-        txt_supplier_invoice=Entry(self.root,textvariable=self.var_sup_invoice,font=("rockwell",15),bg="lightyellow").place(x=180,y=80,width=180)
-
+        lbl_supplier_invoice=Label(self.root,text="Invoice No.",font=("times new roman",15),bg="white").place(x=50,y=80)
+        txt_supplier_invoice=Entry(self.root,textvariable=self.var_sup_invoice,font=("rockwell",15),bg="ivory").place(x=180,y=80,width=180)
 
 
         #----------------------------row2--------------------------
-        lbl_name=Label(self.root,text="Name",font=("rockwell",15),bg="ghost white").place(x=50,y=120)
-        txt_name=Entry(self.root,textvariable=self.var_name,font=("rockwell",15),bg="lightyellow").place(x=180,y=120,width=180)
+        lbl_name=Label(self.root,text="Name",font=("times new roman",15),bg="white").place(x=50,y=120)
+        txt_name=Entry(self.root,textvariable=self.var_name,font=("rockwell",15),bg="ivory").place(x=180,y=120,width=180)
 
         
         #--------------------------row3----------------------------
-        lbl_contact=Label(self.root,text="Contact",font=("rockwell",15),bg="ghost white").place(x=50,y=160)
-        txt_contact=Entry(self.root,textvariable=self.var_contact,font=("rockwell",15),bg="lightyellow").place(x=180,y=160,width=180)
+        lbl_contact=Label(self.root,text="Contact",font=("times new roman",15),bg="white").place(x=50,y=160)
+        txt_contact=Entry(self.root,textvariable=self.var_contact,font=("rockwell",15),bg="ivory").place(x=180,y=160,width=180)
 
 
         #--------------------------row4----------------------------
-        lbl_desc=Label(self.root,text="Description",font=("rockwell",15),bg="ghost white").place(x=50,y=200)
-        self.txt_desc=Text(self.root,font=("rockwell",15),bg="lightyellow")
+        lbl_desc=Label(self.root,text="Description",font=("times new roman",15),bg="white").place(x=50,y=200)
+        self.txt_desc=Text(self.root,font=("rockwell",15),bg="ivory")
         self.txt_desc.place(x=180,y=200,width=470,height=120)
 
         #-------------------------button---------------------------------
-        btn_add=Button(self.root,text="SAVE",command=self.add,font=("rockwell",15),bg="deepskyblue3",fg="white",cursor="hand2").place(x=180,y=370,width=110,height=35)
-        btn_update=Button(self.root,text="UPDATE",command=self.update,font=("rockwell",15),bg="green4",fg="white",cursor="hand2").place(x=300,y=370,width=110,height=35)
-        btn_delete=Button(self.root,text="DELETE",command=self.delete,font=("rockwell",15),bg="red3",fg="white",cursor="hand2").place(x=420,y=370,width=110,height=35)
-        btn_clear=Button(self.root,text="CLEAR",command=self.clear,font=("rockwell",15),bg="gray10",fg="white",cursor="hand2").place(x=540,y=370,width=110,height=35)
+        btn_add=Button(self.root,text="Save",command=self.add,font=("rockwell",15),bg="deepskyblue3",fg="white",cursor="hand2").place(x=180,y=370,width=110,height=35)
+        btn_update=Button(self.root,text="Update",command=self.update,font=("rockwell",15),bg="green4",fg="white",cursor="hand2").place(x=300,y=370,width=110,height=35)
+        btn_delete=Button(self.root,text="Delete",command=self.delete,font=("rockwell",15),bg="red3",fg="white",cursor="hand2").place(x=420,y=370,width=110,height=35)
+        btn_clear=Button(self.root,text="Clear",command=self.clear,font=("rockwell",15),bg="gray10",fg="white",cursor="hand2").place(x=540,y=370,width=110,height=35)
         
 
 

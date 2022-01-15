@@ -7,7 +7,7 @@ class productClass:
         self.root=root
         self.root.geometry("1100x500+220+130")
         self.root.title("                                                                                                                             Inventory Management System | Developed By Gaayana And Jayanth")
-        self.root.config(bg="ghost white")
+        self.root.config(bg="white")
         self.root.focus_force()
 #========================================================
         self.var_searchby=StringVar()
@@ -28,14 +28,14 @@ class productClass:
         product_frame=Frame(self.root,bd=2,relief=RIDGE,bg="white")
         product_frame.place(x=0,y=10,width=450,height=480)  
 #==============title===============================         
-        title=Label(product_frame,text="Manage Product Details",font=("rockwell",18),bg="#0f4d7d",fg="white").pack(side=TOP,fill=X)
+        title=Label(product_frame,text="Manage Product Details",font=("rockwell",18),bg="navy",fg="white").pack(side=TOP,fill=X)
         #========column1========
-        lbl_category=Label(product_frame,text="Category",font=("rockwell",18),bg="white").place(x=30,y=60)
-        lbl_supplier=Label(product_frame,text="Supplier",font=("rockwell",18),bg="white").place(x=30,y=110)
-        lbl_product_name=Label(product_frame,text="Name",font=("rockwell",18),bg="white").place(x=30,y=160)
-        lbl_price=Label(product_frame,text="Price",font=("rockwell",18),bg="white").place(x=30,y=210)
-        lbl_qty=Label(product_frame,text="Quantity",font=("rockwell",18),bg="white").place(x=30,y=260)
-        lbl_status=Label(product_frame,text="Status",font=("rockwell",18),bg="white").place(x=30,y=310)
+        lbl_category=Label(product_frame,text="Category",font=("times new roman",18),bg="white").place(x=30,y=60)
+        lbl_supplier=Label(product_frame,text="Supplier",font=("times new roman",18),bg="white").place(x=30,y=110)
+        lbl_product_name=Label(product_frame,text="Name",font=("times new roman",18),bg="white").place(x=30,y=160)
+        lbl_price=Label(product_frame,text="Price",font=("times new roman",18),bg="white").place(x=30,y=210)
+        lbl_qty=Label(product_frame,text="Quantity",font=("times new roman",18),bg="white").place(x=30,y=260)
+        lbl_status=Label(product_frame,text="Status",font=("times new roman",18),bg="white").place(x=30,y=310)
         
         #======================column2==================================
         cmb_cat=ttk.Combobox(product_frame,textvariable=self.var_cat,values=self.cat_list,state='readonly',justify=CENTER,font=("rockwell",15))
@@ -46,22 +46,22 @@ class productClass:
         cmb_sup.place(x=150,y=110,width=200)
         cmb_sup.current(0)  
 
-        txt_name=Entry(product_frame,textvariable=self.var_name,font=("rockwell",15),bg='lightyellow').place(x=150,y=160,width=200)
-        txt_price=Entry(product_frame,textvariable=self.var_price,font=("rockwell",15),bg='lightyellow').place(x=150,y=210,width=200)
-        txt_qty=Entry(product_frame,textvariable=self.var_qty,font=("rockwell",15),bg='lightyellow').place(x=150,y=260,width=200)
+        txt_name=Entry(product_frame,textvariable=self.var_name,font=("rockwell",15),bg='ivory').place(x=150,y=160,width=200)
+        txt_price=Entry(product_frame,textvariable=self.var_price,font=("rockwell",15),bg='ivory').place(x=150,y=210,width=200)
+        txt_qty=Entry(product_frame,textvariable=self.var_qty,font=("rockwell",15),bg='ivory').place(x=150,y=260,width=200)
 
         cmb_status=ttk.Combobox(product_frame,textvariable=self.var_status,values=("Active","Inactive"),state='readonly',justify=CENTER,font=("rockwell",15))
         cmb_status.place(x=150,y=310,width=200)
         cmb_status.current(0)  
 
         #=====================buttons==================================
-        btn_add=Button(product_frame,text="SAVE",command=self.add,font=("rockwell",15),bg="deepskyblue3",fg="white",cursor="hand2").place(x=10,y=400,width=100,height=40)
-        btn_update=Button(product_frame,text="UPDATE",command=self.update,font=("rockwell",15),bg="green4",fg="white",cursor="hand2").place(x=120,y=400,width=100,height=40)
-        btn_delete=Button(product_frame,text="DELETE",command=self.delete,font=("rockwell",15),bg="red3",fg="white",cursor="hand2").place(x=230,y=400,width=100,height=40)
-        btn_clear=Button(product_frame,text="CLEAR",command=self.clear,font=("rockwell",15),bg="gray10",fg="white",cursor="hand2").place(x=340,y=400,width=100,height=40) 
+        btn_add=Button(product_frame,text="Save",command=self.add,font=("rockwell",15),bg="deepskyblue3",fg="white",cursor="hand2").place(x=10,y=400,width=100,height=40)
+        btn_update=Button(product_frame,text="Update",command=self.update,font=("rockwell",15),bg="green4",fg="white",cursor="hand2").place(x=120,y=400,width=100,height=40)
+        btn_delete=Button(product_frame,text="Delete",command=self.delete,font=("rockwell",15),bg="red3",fg="white",cursor="hand2").place(x=230,y=400,width=100,height=40)
+        btn_clear=Button(product_frame,text="Clear",command=self.clear,font=("rockwell",15),bg="gray10",fg="white",cursor="hand2").place(x=340,y=400,width=100,height=40) 
 
         #=====================search frame==============================
-        SearchFrame=LabelFrame(self.root,text="Search Employee",font=("rockwell",12,"bold"),bd=2,relief=RIDGE,bg="white")
+        SearchFrame=LabelFrame(self.root,text="Search Employee",font=("rockwell",12),bd=2,relief=RIDGE,bg="white")
         SearchFrame.place(x=480,y=10,width=600,height=70)
 
         #====================option==========================
@@ -69,8 +69,8 @@ class productClass:
         cmb_search.place(x=10,y=10,width=180)
         cmb_search.current(0)
 
-        txt_search=Entry(SearchFrame,textvariable=self.var_searchtxt,font=("rockwell",15),bg="lightyellow").place(x=200,y=10)
-        btn_search=Button(SearchFrame,text="SEARCH",command=self.search,font=("rockwell",15),bg="green4",fg="white",cursor="hand2").place(x=410,y=9,width=150,height=30)
+        txt_search=Entry(SearchFrame,textvariable=self.var_searchtxt,font=("rockwell",15),bg="ivory").place(x=200,y=10)
+        btn_search=Button(SearchFrame,text="Search",command=self.search,font=("rockwell",15),bg="green4",fg="white",cursor="hand2").place(x=410,y=9,width=150,height=30)
         
         #==========product details==========================
         p_frame=Frame(self.root,bd=3,relief=RIDGE)
