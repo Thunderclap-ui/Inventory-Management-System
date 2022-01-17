@@ -173,7 +173,7 @@ class BillClass:
 
         #=============billing area=======================
         billFrame=Frame(self.root,bd=2,relief=RIDGE,bg='white')
-        billFrame.place(x=953,y=110,width=380,height=410)
+        billFrame.place(x=953,y=110,width=320,height=410)
         bTitle=Label(billFrame,text="Customer Bill Area",font=("rockwell",20),bg="orangered",fg="white").pack(side=TOP,fill=X)
         scrolly=Scrollbar(billFrame,orient=VERTICAL)
         scrolly.pack(side=RIGHT,fill=Y)
@@ -182,26 +182,26 @@ class BillClass:
         scrolly.config(command=self.txt_bill_area.yview)
         #============billing button====================
         billMenuFrame=Frame(self.root,bd=2,relief=RIDGE,bg='white')
-        billMenuFrame.place(x=953,y=520,width=380,height=140)
+        billMenuFrame.place(x=953,y=520,width=320,height=140)
 
         self.lbl_amt=Label(billMenuFrame,text="Bill Amount\n[0]",font=("goudy old style",15,"bold"),bg='midnightblue',fg="white")
-        self.lbl_amt.place(x=4,y=5,width=120,height=70)
+        self.lbl_amt.place(x=2,y=5,width=105,height=70)
 
         self.lbl_discount=Label(billMenuFrame,text="Discount\n[5%]",font=("goudy old style",15,"bold"),bg='olivedrab',fg="white")
-        self.lbl_discount.place(x=130,y=5,width=120,height=70)
+        self.lbl_discount.place(x=110,y=5,width=105,height=70)
 
         self.lbl_net_pay=Label(billMenuFrame,text="Net Pay\n[0]",font=("goudy old style",15,"bold"),bg='lightsteelblue4',fg="white")
-        self.lbl_net_pay.place(x=255,y=5,width=120,height=70)
+        self.lbl_net_pay.place(x=218,y=5,width=105,height=70)
 
 
         btn_print=Button(billMenuFrame,text="Print",command=self.print_bill,font=("goudy old style",15,"bold"),bg='springgreen3',fg="white",cursor="hand2")
-        btn_print.place(x=4,y=80,width=110,height=50)
+        btn_print.place(x=2,y=80,width=105,height=50)
 
         btn_clear_all=Button(billMenuFrame,text="Clear All",command=self.clear_all,font=("goudy old style",15,"bold"),bg='gray40',fg="white",cursor="hand2")
-        btn_clear_all.place(x=130,y=80,width=110,height=50)
+        btn_clear_all.place(x=110,y=80,width=105,height=50)
 
         btn_generate=Button(billMenuFrame,text="Generate Bill",command=self.generate_bill,font=("goudy old style",13,"bold"),bg='turquoise4',fg="white",cursor="hand2")
-        btn_generate.place(x=255,y=80,width=110,height=50)
+        btn_generate.place(x=218,y=80,width=105,height=50)
 
         self.show()  
         self.update_date_time()
@@ -222,7 +222,7 @@ class BillClass:
         con=sqlite3.connect(database=r'ims.db')
         cur=con.cursor()
         try:
-            cur.execute("select pid,name,price,qty,status from product where status='active'")
+            cur.execute("select pid,name,price,qty,status from product where status='Active'")
             rows=cur.fetchall()
             self.product_Table.delete(*self.product_Table.get_children())
             for row in rows:
@@ -237,7 +237,7 @@ class BillClass:
             if self.var_search.get()=="":   
                 messagebox.showerror("Error","Search Input is required",parent=self.root)
             else:            
-                cur.execute("select pid,name,price,qty,status from product where name LIKE '%"+self.var_search.get()+"%' and status='active'")
+                cur.execute("select pid,name,price,qty,status from product where name LIKE '%"+self.var_search.get()+"%' and status='Active'")
                 rows=cur.fetchall()
                 if len(rows)!=0:        
                     self.product_Table.delete(*self.product_Table.get_children())
@@ -351,27 +351,26 @@ class BillClass:
     def bill_top(self):
         self.invoice=int(time.strftime("%H%M%S"))+int(time.strftime("%d%m%Y"))
         bill_top_temp=f'''
-\t\tXYZ-Inventory
-\t Phone No. 98745***** , Bangalore-560040
-{str("="*47)}
+  \tXYZ-Inventory
+ Phone No. 98725***** B'lore-560008
+{str("="*36)}
  Customer Name: {self.var_cname.get()}
  Ph no. :{self.var_contact.get()}
- Bill No. {str(self.invoice)}\t\t\tDate: {str(time.strftime("%d/%m/%Y"))}
-{str("="*47)}
- Product Name\t\t\tQTY\tPrice
-{str("="*47)}
+ Bill No. {str(self.invoice)}\t\tDate: {str(time.strftime("%d/%m/%Y"))}
+{str("="*36)}
+ Product Name    \t\tQTY \tPrice
+{str("="*36)}
         '''
         self.txt_bill_area.delete('1.0',END)
         self.txt_bill_area.insert('1.0',bill_top_temp)
 
-
     def bill_bottom(self):
         bill_bottom_temp=f'''
-{str("="*47)}
- Bill Amount\t\t\t\tRs.{self.bill_amnt}
- Discount\t\t\t\tRs.{self.discount}
- Net Pay\t\t\t\tRs.{self.net_pay}
-{str("="*47)}\n
+{str("="*36)}
+ Bill Amount\t\tRs.{self.bill_amnt}
+ Discount\t\tRs.{self.discount}
+ Net Pay\t\tRs.{self.net_pay}
+{str("="*36)}\n
         '''
         self.txt_bill_area.insert(END,bill_bottom_temp)
 
@@ -391,7 +390,7 @@ class BillClass:
                     status='Active'
                 price=float(row[2])*int(row[3])
                 price=str(price)
-                self.txt_bill_area.insert(END,"\n "+name+"\t\t\t"+row[3]+"\tRs."+price)
+                self.txt_bill_area.insert(END,"\n "+name+"       \t\t"+row[3]+" \tRs."+price)
                 #--------------Update qty in product table-------------------
                 cur.execute('Update product set qty=?,status=? where pid=?',(
                     qty,

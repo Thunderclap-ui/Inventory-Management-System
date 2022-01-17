@@ -70,12 +70,12 @@ class Login_System:
                 if user==None:
                     messagebox.showerror('Error',"Invalid EMPLOYEE ID/PASSWORD",parent=self.root)
                 else:
-                    if user=="Admin":
-                        self.root.destroy()
-                        os.system("python dashboard.py")
-                    else:
+                    if user=="Employee":
                         self.root.destroy()
                         os.system("python billing.py")
+                    else:
+                        self.root.destroy()
+                        os.system("python dashboard.py")
         except Exception as ex:
             messagebox.showerror("Error",f'Error due to: {str(ex)}',parent=self.root)
 

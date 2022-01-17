@@ -34,7 +34,7 @@ class salesClass:
 
         #--------Bill Area--------
         bill_Frame=Frame(self.root,bd=3,relief=RIDGE)
-        bill_Frame.place(x=280,y=140,width=410,height=330)
+        bill_Frame.place(x=280,y=140,width=320,height=330)
         lbl_title2=Label(bill_Frame,text="Customer Bill Area",font=("rockwell",20),bg="orangered",fg="white").pack(side=TOP,fill=X)
         scrolly2=Scrollbar(bill_Frame,orient=VERTICAL)
         self.bill_area=Text(bill_Frame,bg="ivory",yscrollcommand=scrolly2.set)
@@ -47,7 +47,7 @@ class salesClass:
         self.bill_photo=self.bill_photo.resize((450,300),Image.ANTIALIAS)
         self.bill_photo=ImageTk.PhotoImage(self.bill_photo)
         lbl_image=Label(self.root,image=self.bill_photo,bd=0)
-        lbl_image.place(x=700,y=110)
+        lbl_image.place(x=600,y=150)
 
         self.show()
 #-------------------------------------------------
