@@ -128,8 +128,6 @@ class productClass:
                 self.sup_list.append("Select")  
                 for i in sup:
                     self.sup_list.append(i[0]) 
-
-
         except Exception as ex:
             messagebox.showerror("Error",f'Error due to: {str(ex)}',parent=self.root)    
 
@@ -152,7 +150,6 @@ class productClass:
                                         self.var_price.get(),
                                         self.var_qty.get(),
                                         self.var_status.get(),                                   
-
                     ))
                     con.commit()
                     messagebox.showinfo("Success","Product Details Added Sucessfully",parent=self.root)
@@ -176,15 +173,14 @@ class productClass:
         f=self.product_table.focus()
         content=(self.product_table.item(f))
         row=content['values']  
-        self.var_pid.set(row[0])      
-        self.var_cat.set(row[2])
+        self.var_pid.set(row[0])    
         self.var_sup.set(row[1])
+        self.var_cat.set(row[2])
         self.var_name.set(row[3])
         self.var_price.set(row[4])
         self.var_qty.set(row[5])
         self.var_status.set(row[6])                                  
 
-        
     def update(self):
         con=sqlite3.connect(database=r'ims.db')
         cur=con.cursor()
@@ -205,7 +201,6 @@ class productClass:
                                         self.var_qty.get(),
                                         self.var_status.get(),
                                         self.var_pid.get()
-
                     ))
                     con.commit()
                     messagebox.showinfo("Success","Product Details Updated Successfully",parent=self.root)
@@ -233,7 +228,7 @@ class productClass:
                         self.clear()
         except Exception as ex:
             messagebox.showerror("Error",f'Error due to: {str(ex)}',parent=self.root)
-    
+
     def clear(self):
         self.var_cat.set("Select")
         self.var_sup.set("Select")
