@@ -15,7 +15,7 @@ class Login_System:
         self.lbl_Phone_image=Label(self.root,image=self.phone_image,bd=0).place(x=200,y=50)
 
         #-------------Login_Frame---------
-        self.employee_id=StringVar()
+        self.user_id=StringVar()
         self.password=StringVar()
 
         login_frame=Frame(self.root,bd=2,relief=RIDGE,bg="white")
@@ -23,8 +23,8 @@ class Login_System:
 
         title=Label(login_frame,text="User Login",font=("Elephant",30,"bold"),bg="white").place(x=0,y=30,relwidth=1)
 
-        lbl_user=Label(login_frame,text="Employee ID",font=("Rockwell",15),bg="white",fg="#767171").place(x=40,y=100)
-        txt_employee_id=Entry(login_frame,textvariable=self.employee_id,font=("Andalus",15),bg="alice blue",fg="gray10").place(x=50,y=140,width=250)
+        lbl_user=Label(login_frame,text="User ID",font=("Rockwell",15),bg="white",fg="#767171").place(x=40,y=100)
+        txt_user_id=Entry(login_frame,textvariable=self.user_id,font=("Andalus",15),bg="alice blue",fg="gray10").place(x=50,y=140,width=250)
 
         lbl_pass=Label(login_frame,text="Password",font=("Rockwell",15),bg="white",fg="#767171").place(x=40,y=200)
         txt_pass=Entry(login_frame,textvariable=self.password,show="*",font=("Andalus",15),bg="alice blue",fg="gray10").place(x=50,y=240,width=250)
@@ -38,7 +38,7 @@ class Login_System:
         register_frame=Frame(self.root,bd=2,relief=RIDGE,bg="white")
         register_frame.place(x=650,y=570,width=370,height=60)
         lbl_reg=Label(register_frame,text="Don't have an account ?",font=("Andalus",13),bg="white",fg="gray10").place(x=40,y=15)
-        btn_signup=Button(register_frame,text='Sign Up',font=("Andalus",13),bg="white",fg="dodgerblue4",bd=0,activebackground="white",activeforeground="navy").place(x=230,y=12)
+        btn_signup=Button(register_frame,text='Sign Up',command=self.Register,font=("Andalus",13),bg="white",fg="dodgerblue4",bd=0,activebackground="white",activeforeground="navy").place(x=230,y=12)
 
         #---------Animation Images-------
         self.im1=ImageTk.PhotoImage(file="images/im1.png")
@@ -62,11 +62,12 @@ class Login_System:
         con=sqlite3.connect(database=r'ims.db')
         cur=con.cursor()
         try:
-            if self.employee_id.get()=="" or self.password.get()=="":
+            if self.user_id.get()=="" or self.password.get()=="":
                 messagebox.showerror('Error',"All fields are required",parent=self.root)
             else:
-                cur.execute("select utype from employee where eid=? AND pass=?",(self.employee_id.get(),self.password.get()))
+                cur.execute("select usertype from register where userid=? AND upass=?",(self.user_id.get(),self.password.get()))
                 user=cur.fetchone()
+                print(user)
                 if user==None:
                     messagebox.showerror('Error',"Invalid EMPLOYEE ID/PASSWORD",parent=self.root)
                 else:
@@ -116,6 +117,9 @@ class Login_System:
 
         except Exception as ex:
             messagebox.showerror("Error",f'Error due to: {str(ex)}',parent=self.root)
+
+    def Register(self):
+        os.system("python register.py")        
 
 
 

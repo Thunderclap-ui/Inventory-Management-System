@@ -1,2 +1,2 @@
- self.root.destroy()
-                        os.system("python dashboard.py")
+for i in utype:          
+                self.var_usertype.set(i[0])

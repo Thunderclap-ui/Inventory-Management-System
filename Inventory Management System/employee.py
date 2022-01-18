@@ -21,7 +21,6 @@ class employeeClass:
         self.var_dob=StringVar()
         self.var_doj=StringVar()
         self.var_email=StringVar()
-        self.var_pass=StringVar()
         self.var_utype=StringVar()
         self.var_salary=StringVar()
         #--------------------search frame--------------------------------
@@ -62,23 +61,22 @@ class employeeClass:
         
         #--------------------------row3----------------------------
         lbl_email=Label(self.root,text="Email",font=("times new roman",15),bg="white").place(x=50,y=230)
-        lbl_password=Label(self.root,text="Password",font=("times new roman",15),bg="white").place(x=400,y=230) 
+        lbl_salary=Label(self.root,text="Salary",font=("times new roman",15),bg="white").place(x=400,y=230) 
         lbl_usertype=Label(self.root,text="User-Type",font=("times new roman",15),bg="white").place(x=750,y=230)
 
         txt_email=Entry(self.root,textvariable=self.var_email,font=("rockwell",15),bg="ivory").place(x=150,y=230,width=180)
-        txt_password=Entry(self.root,textvariable=self.var_pass,font=("rockwell",15),bg="ivory").place(x=500,y=230,width=180)
+        txt_salary=Entry(self.root,textvariable=self.var_salary,font=("rockwell",15),bg="ivory").place(x=500,y=230,width=180)
         cmb_usertype=ttk.Combobox(self.root,textvariable=self.var_utype,values=("Select","Admin","Employee"),state='readonly',justify=CENTER,font=("rockwell",15))
         cmb_usertype.place(x=850,y=230,width=180)
         cmb_usertype.current(0) 
 
         #--------------------------row4----------------------------
         lbl_address=Label(self.root,text="Address",font=("times new roman",15),bg="white").place(x=50,y=270)
-        lbl_salary=Label(self.root,text="Salary",font=("times new roman",15),bg="white").place(x=500,y=270) 
-        
+               
 
         self.txt_address=Text(self.root,font=("rockwell",15),bg="ivory")
         self.txt_address.place(x=150,y=270,width=300,height=60)
-        txt_salary=Entry(self.root,textvariable=self.var_salary,font=("rockwell",15),bg="ivory").place(x=600,y=270,width=180)
+        
         #-------------------------button---------------------------------
         btn_add=Button(self.root,text="Save",command=self.add,font=("rockwell",15),bg="deepskyblue3",fg="white",cursor="hand2").place(x=500,y=305,width=110,height=28)
         btn_update=Button(self.root,text="Update",command=self.update,font=("rockwell",15),bg="green4",fg="white",cursor="hand2").place(x=620,y=305,width=110,height=28)
@@ -95,7 +93,7 @@ class employeeClass:
         scrolly=Scrollbar(emp_frame,orient=VERTICAL)
         scrollx=Scrollbar(emp_frame,orient=HORIZONTAL)
 
-        self.EmployeeTable=ttk.Treeview(emp_frame,columns=("eid","name","email","gender","contact","dob","doj","pass","utype","address","salary"),yscrollcommand=scrolly.set,xscrollcommand=scrollx.set)
+        self.EmployeeTable=ttk.Treeview(emp_frame,columns=("eid","name","email","gender","contact","dob","doj","utype","address","salary"),yscrollcommand=scrolly.set,xscrollcommand=scrollx.set)
         scrollx.pack(side=BOTTOM,fill=X)
         scrolly.pack(side=RIGHT,fill=Y)
         scrollx.config(command=self.EmployeeTable.xview)
@@ -107,20 +105,18 @@ class employeeClass:
         self.EmployeeTable.heading("contact",text="Contact")
         self.EmployeeTable.heading("dob",text="D.O.B")
         self.EmployeeTable.heading("doj",text="D.O.J")
-        self.EmployeeTable.heading("pass",text="Password")
         self.EmployeeTable.heading("utype",text="User-Type")
         self.EmployeeTable.heading("address",text="Address")
         self.EmployeeTable.heading("salary",text="Salary")
         self.EmployeeTable["show"]="headings"
         self.EmployeeTable.pack(fill=BOTH,expand=1)
         self.EmployeeTable.column("eid",width=50)
-        self.EmployeeTable.column("name",width=90)
-        self.EmployeeTable.column("email",width=120)
+        self.EmployeeTable.column("name",width=100)
+        self.EmployeeTable.column("email",width=100)
         self.EmployeeTable.column("gender",width=90)
-        self.EmployeeTable.column("contact",width=90)
+        self.EmployeeTable.column("contact",width=100)
         self.EmployeeTable.column("dob",width=90)
         self.EmployeeTable.column("doj",width=90)
-        self.EmployeeTable.column("pass",width=100)
         self.EmployeeTable.column("utype",width=90)
         self.EmployeeTable.column("address",width=100)
         self.EmployeeTable.column("salary",width=70)
@@ -141,7 +137,7 @@ class employeeClass:
                 if row!=None:
                     messagebox.showerror("Error","This Employee ID is already assigned, try different",parent=self.root)
                 else:
-                    cur.execute("Insert into employee(eid,name,email,gender,contact,dob,doj,pass,utype,address,salary) values(?,?,?,?,?,?,?,?,?,?,?)",(
+                    cur.execute("Insert into employee(eid,name,email,gender,contact,dob,doj,utype,address,salary) values(?,?,?,?,?,?,?,?,?,?)",(
                                                 self.var_emp_id.get(),
                                                 self.var_name.get(),
                                                 self.var_email.get(),
@@ -149,7 +145,6 @@ class employeeClass:
                                                 self.var_contact.get(),
                                                 self.var_dob.get(),
                                                 self.var_doj.get(),
-                                                self.var_pass.get(),
                                                 self.var_utype.get(),
                                                 self.txt_address.get('1.0',END),
                                                 self.var_salary.get()
@@ -182,12 +177,11 @@ class employeeClass:
         self.var_gender.set(row[3])
         self.var_contact.set(row[4])
         self.var_dob.set(row[5])
-        self.var_doj.set(row[6])
-        self.var_pass.set(row[7])
-        self.var_utype.set(row[8])
+        self.var_doj.set(row[6])        
+        self.var_utype.set(row[7])
         self.txt_address.delete('1.0',END)
-        self.txt_address.insert(END,row[9])
-        self.var_salary.set(row[10])
+        self.txt_address.insert(END,row[8])
+        self.var_salary.set(row[9])
 
     def update(self):
         con=sqlite3.connect(database=r'ims.db')
@@ -201,14 +195,13 @@ class employeeClass:
                 if row==None:
                     messagebox.showerror("Error","Invalid Employee ID",parent=self.root)
                 else:
-                    cur.execute("Update employee set name=?,email=?,gender=?,contact=?,dob=?,doj=?,pass=?,utype=?,address=?,salary=? where eid=?",(
+                    cur.execute("Update employee set name=?,email=?,gender=?,contact=?,dob=?,doj=?,utype=?,address=?,salary=? where eid=?",(
                                         self.var_name.get(),
                                         self.var_email.get(),
                                         self.var_gender.get(),
                                         self.var_contact.get(),
                                         self.var_dob.get(),
-                                        self.var_doj.get(),
-                                        self.var_pass.get(),
+                                        self.var_doj.get(),                                        
                                         self.var_utype.get(),
                                         self.txt_address.get('1.0',END),
                                         self.var_salary.get(),
@@ -249,7 +242,6 @@ class employeeClass:
         self.var_contact.set("")
         self.var_dob.set(""),
         self.var_doj.set(""),
-        self.var_pass.set(""),
         self.var_utype.set("Admin"),
         self.txt_address.delete('1.0',END),
         self.var_salary.set(""),
