@@ -52,7 +52,7 @@ class registrationClass:
         cur=con.cursor()
         try:      
             cur.execute("Select name from employee where eid=?",(self.var_eid.get(),))
-            name=cur.fetchone()                      
+            name=cur.fetchone()                               
             self.var_ename.set(name[0])
             cur.execute("Select utype from employee where eid=?",(self.var_eid.get(),))
             utype=cur.fetchone()                      

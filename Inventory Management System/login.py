@@ -67,11 +67,10 @@ class Login_System:
             else:
                 cur.execute("select usertype from register where userid=? AND upass=?",(self.user_id.get(),self.password.get()))
                 user=cur.fetchone()
-                print(user)
                 if user==None:
                     messagebox.showerror('Error',"Invalid EMPLOYEE ID/PASSWORD",parent=self.root)
                 else:
-                    if user=="Employee":
+                    if user[0]=="Employee":
                         self.root.destroy()
                         os.system("python billing.py")
                     else:
