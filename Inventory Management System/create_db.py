@@ -14,7 +14,8 @@ def create_db():
     cur.execute("CREATE TABLE IF NOT EXISTS product(pid INTEGER PRIMARY KEY AUTOINCREMENT,Supplier text,Category text,name text,price text,qty text,status text)")
     con.commit()
 
-    cur.execute("CREATE TABLE IF NOT EXISTS register(eid INTEGER PRIMARY KEY AUTOINCREMENT,ename text,usertype text,userid text,upass text)")
+    cur.execute("CREATE TABLE IF NOT EXISTS register(eid INTEGER PRIMARY KEY AUTOINCREMENT,name text,utype text,userid text,upass text)")
     con.commit()
+
 
 create_db()    

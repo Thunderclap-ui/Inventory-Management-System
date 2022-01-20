@@ -51,10 +51,10 @@ class registrationClass:
         con=sqlite3.connect(database=r'ims.db')
         cur=con.cursor()
         try:      
-            cur.execute("Select name from employee where eid=?",(self.var_eid.get(),))
+            cur.execute("Select name from register where eid=?",(self.var_eid.get(),))
             name=cur.fetchone()                               
             self.var_ename.set(name[0])
-            cur.execute("Select utype from employee where eid=?",(self.var_eid.get(),))
+            cur.execute("Select utype from employee register where eid=?",(self.var_eid.get(),))
             utype=cur.fetchone()                      
             self.var_usertype.set(utype[0])
             if name==None or utype==None:
@@ -72,17 +72,15 @@ class registrationClass:
             else:
                     cur.execute("select * from register where eid=?",(self.var_eid.get(),))
                     row=cur.fetchone()
-                    if row!=None:
+                    if row[3]!=None and row[4]!=None:
                         messagebox.showerror("Error","Already Registered",parent=self.root)
                     elif self.var_pass.get()!=self.var_cpass.get():
                         messagebox.showerror("Error","incorrect input in confirm password field",parent=self.root)   
                     else:
-                        cur.execute("Insert into register(eid,ename,usertype,userid,upass)values(?,?,?,?,?)",(
-                                            self.var_eid.get(),
-                                            self.var_ename.get(),
-                                            self.var_usertype.get(),
+                        cur.execute("Update register set userid=?,upass=? where eid=?",(                                            
                                             self.var_userid.get(),
-                                            self.var_pass.get(),                                                                              
+                                            self.var_pass.get(),     
+                                            self.var_eid.get(),                                                                         
                         ))
                         con.commit()
                         messagebox.showinfo("Success","Sucessfully Register",parent=self.root)                        

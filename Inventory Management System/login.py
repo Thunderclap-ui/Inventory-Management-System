@@ -59,13 +59,13 @@ class Login_System:
         self.lbl_change_image.after(2000,self.animate)
 
     def login(self):
-        con=sqlite3.connect(database=r'ims.db')
+        con=sqlite3.connect(database=r'ims.db') 
         cur=con.cursor()
         try:
             if self.user_id.get()=="" or self.password.get()=="":
                 messagebox.showerror('Error',"All fields are required",parent=self.root)
             else:
-                cur.execute("select usertype from register where userid=? AND upass=?",(self.user_id.get(),self.password.get()))
+                cur.execute("select utype from register where userid=? AND upass=?",(self.user_id.get(),self.password.get()))
                 user=cur.fetchone()
                 if user==None:
                     messagebox.showerror('Error',"Invalid EMPLOYEE ID/PASSWORD",parent=self.root)
