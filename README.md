@@ -1,5 +1,5 @@
 # Inventory Management System (IMS)                  
-A tool for small scale business administration
+### A tool for small scale business administration
 •Graphical user interface management 
 system to provide inventory for business 
 services and maintenance of employment 
