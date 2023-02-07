@@ -4,6 +4,6 @@
 system to provide inventory for business 
 services and maintenance of employment 
 administration
-•Developed using Python TKinter toolkit for 
+<br>•Developed using Python TKinter toolkit for 
 frontend and SQLite for backend 
 processes
