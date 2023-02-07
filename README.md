@@ -1,10 +1,10 @@
 # Inventory Management System (IMS)                  
 ### A tool for small scale business administration
-•Graphical user interface management 
+• Graphical user interface management 
 system to provide inventory for business 
 services and maintenance of employment 
 administration
-<br>•Developed using Python TKinter toolkit for 
+<br>• Developed using Python TKinter toolkit for 
 frontend and SQLite for backend 
 processes<hr>
 ### Snapshots of the application 
