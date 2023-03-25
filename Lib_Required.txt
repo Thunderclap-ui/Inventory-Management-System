@@ -1,1 +1,6 @@
-
+(pip install) The following are the modules and libs required for development of the project:
+1. tkinter
+2. pillow 
+3. distutils
+4. sqlite3
+5. turtle
